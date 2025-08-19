@@ -2,7 +2,7 @@
 """
 Created on Thu Feb 27 09:36:52 2025
 
-@author: Vicon-OEM
+@author: dan.gregory
 """
 
 import pyodbc
@@ -12,7 +12,7 @@ import datetime
 # Define the connection string
 Connection_string = (
     r"DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};"
-    r"DBQ=K:/Patient Archive/PatientDB/PatientsAndServicesDatabase.mdb;"
+    r"DBQ=C:/Database Archive/Project Database/DatabaseAccessFile.mdb;"
     )
 
 # Establish connection with patient database
@@ -73,7 +73,7 @@ df = df[(df['Age'] >= 12) & (df['Age'] <= 18)]
 df.drop(['DOB','Date'],axis=1, inplace=True)
 
 # Save to Excel with a defined filename
-filename = "LongTerm_CP_Encounters_SPR.xlsx"
+filename = "SQLstyleAccessData.xlsx"
 df.to_excel(filename, index=False, engine='openpyxl')
 
 # Close the connection when done
